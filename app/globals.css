@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+/* ─── Design tokens: duální paleta ─────────────────────────── */
+:root {
+  /* Světlá – Wedding */
+  --cream:       #FAF7F2;
+  --charcoal:    #1A1A1A;
+  --gold-rose:   #B8956A;
+  --gold-rose-light: #D4AF85;
+
+  /* Tmavá – IRIS */
+  --obsidian:    #0A0A0A;
+  --warm-white:  #F5F0E8;
+  --antique-gold: #C9A961;
+  --cosmic-purple: #7B4FBE;
+  --cosmic-purple-light: #9B6FDE;
+
+  /* Neutrální */
+  --border-light: rgba(26, 26, 26, 0.12);
+  --border-dark:  rgba(245, 240, 232, 0.12);
+}
+
+@theme inline {
+  /* Wedding world colors */
+  --color-cream:         var(--cream);
+  --color-charcoal:      var(--charcoal);
+  --color-gold-rose:     var(--gold-rose);
+  --color-gold-rose-light: var(--gold-rose-light);
+
+  /* IRIS world colors */
+  --color-obsidian:      var(--obsidian);
+  --color-warm-white:    var(--warm-white);
+  --color-antique-gold:  var(--antique-gold);
+  --color-cosmic-purple: var(--cosmic-purple);
+  --color-cosmic-purple-light: var(--cosmic-purple-light);
+
+  /* Fonts */
+  --font-display: var(--font-cormorant);
+  --font-body:    var(--font-inter);
+}
+
+/* ─── Base reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  overflow-x: clip;
+}
+
+/* ─── Typography helpers ──────────────────────────────────────── */
+.font-display {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+/* ─── Section backgrounds ────────────────────────────────────── */
+.section-light {
+  background-color: var(--cream);
+  color: var(--charcoal);
+}
+
+.section-dark {
+  background-color: var(--obsidian);
+  color: var(--warm-white);
+}
+
+/* ─── Smooth scrollbar ───────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold-rose);
+  border-radius: 3px;
+}
+
+/* ─── Focus visible ──────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--antique-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── Animate utilities ──────────────────────────────────────── */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease forwards;
+}
