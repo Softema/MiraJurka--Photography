@@ -21,6 +21,9 @@
 }
 
 @theme inline {
+  /* Custom breakpoints */
+  --breakpoint-xs: 400px;
+
   /* Wedding world colors */
   --color-cream:         var(--cream);
   --color-charcoal:      var(--charcoal);
@@ -109,7 +112,7 @@ body {
 }
 
 /* ─── Hero slash divider ─────────────────────────────────────── */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .hero-half-left {
     flex: 0 0 50%;
     clip-path: polygon(0 0, 100% 0, calc(100% - 90px) 100%, 0 100%);
@@ -121,12 +124,34 @@ body {
   }
 }
 
-@media (max-width: 767px) {
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-half-left {
+    flex: 0 0 50%;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 60px) 100%, 0 100%);
+  }
+  .hero-half-right {
+    flex: 0 0 calc(50% + 60px);
+    margin-left: -60px;
+    clip-path: polygon(60px 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
   .hero-half-top {
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 36px), 0 100%);
   }
   .hero-half-bottom {
     margin-top: -36px;
     clip-path: polygon(0 36px, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-half-top {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 24px), 0 100%);
+  }
+  .hero-half-bottom {
+    margin-top: -24px;
+    clip-path: polygon(0 24px, 100% 0, 100% 100%, 0 100%);
   }
 }

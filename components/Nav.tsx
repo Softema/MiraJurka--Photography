@@ -83,7 +83,7 @@ export default function Nav() {
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
@@ -116,7 +116,7 @@ export default function Nav() {
         </ul>
 
         {/* Mobile: kontaktní ikony + hamburger */}
-        <div className="md:hidden flex items-center gap-4">
+        <div className="lg:hidden flex items-center gap-4">
           <a
             href="tel:+420737039200"
             aria-label="Telefon"
@@ -156,7 +156,7 @@ export default function Nav() {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden transition-all duration-300 overflow-hidden ${
+        className={`lg:hidden transition-all duration-300 overflow-hidden ${
           menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         } ${isDark ? "bg-[#0A0A0A]" : "bg-[#FAF7F2]"}`}
       >
