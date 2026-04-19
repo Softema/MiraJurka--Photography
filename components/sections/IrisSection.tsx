@@ -76,9 +76,6 @@ export default function IrisSection() {
 
           {/* Pravý sloupec — obsah */}
           <div className="order-1 lg:order-2">
-            <p className="text-[#C9A961] text-xs tracking-[0.3em] uppercase mb-4 font-body">
-              Kapitola II
-            </p>
             <h2 className="font-display text-5xl lg:text-6xl font-light italic text-[#F5F0E8] leading-tight mb-2">
               Vesmír
             </h2>

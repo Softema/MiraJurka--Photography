@@ -5,11 +5,11 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative h-screen min-h-[600px] w-full overflow-hidden">
+    <section className="relative h-[calc(100vh-4rem)] lg:h-[calc(100vh-5rem)] min-h-[600px] w-full overflow-hidden">
       {/* Split background: světlá (levá/horní) a tmavá (pravá/dolní) */}
       <div className="absolute inset-0 flex flex-col md:flex-row">
         {/* Světlá polovina — Wedding */}
-        <div className="relative flex-1 overflow-hidden">
+        <div className="hero-half-left hero-half-top relative flex-1 overflow-hidden">
           <Image
             src="/images/wedding-hero.webp"
             alt="Svatební fotografie – Miroslav Jurka"
@@ -18,12 +18,12 @@ export default function Hero() {
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
-          {/* Jemný světlý overlay */}
-          <div className="absolute inset-0 bg-[#FAF7F2]/25" />
+          {/* Overlay pro čitelnost textu */}
+          <div className="absolute inset-0 bg-black/10" />
         </div>
 
         {/* Tmavá polovina — IRIS */}
-        <div className="relative flex-1 overflow-hidden">
+        <div className="hero-half-right hero-half-bottom relative flex-1 overflow-hidden">
           <Image
             src="/images/iris-hero.webp"
             alt="IRIS fotografie oční duhovky – Miroslav Jurka"
@@ -33,70 +33,113 @@ export default function Hero() {
             sizes="(max-width: 768px) 100vw, 50vw"
           />
           {/* Tmavý overlay pro kosmický efekt */}
-          <div className="absolute inset-0 bg-[#0A0A0A]/40" />
+          <div className="absolute inset-0 bg-[#0A0A0A]/10" />
         </div>
       </div>
 
-      {/* Dělicí linka uprostřed */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="hidden md:block w-px h-full bg-gradient-to-b from-transparent via-white/60 to-transparent" />
-        <div className="md:hidden h-px w-full bg-gradient-to-r from-transparent via-white/60 to-transparent" />
-      </div>
+      {/* Centrální vigneta — ztmaví střed kde sedí text */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 85% 75% at 50% 50%, rgba(0,0,0,0.45) 0%, transparent 100%)",
+        }}
+      />
+
 
       {/* Centrovaný obsah */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
         {/* Horní eyebrow */}
-        <p className="text-white/80 text-xs tracking-[0.3em] uppercase mb-4 drop-shadow-lg font-body">
+        <p
+          className="text-white text-sm md:text-base tracking-[0.35em] uppercase mb-5 font-body"
+          style={{ textShadow: "0 1px 12px rgba(0,0,0,0.8)" }}
+        >
           Profesionální fotograf
         </p>
 
         {/* Jméno — přes obě poloviny */}
-        <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light italic text-white drop-shadow-2xl leading-none mb-2">
-          Miroslav
-        </h1>
-        <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-semibold text-white drop-shadow-2xl leading-none mb-8">
-          Jurka
+        <h1
+          className="font-display text-5xl md:text-7xl lg:text-8xl text-white leading-none mb-8"
+          style={{ textShadow: "0 2px 32px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5)" }}
+        >
+          <span className="block font-light italic mb-2">Miroslav</span>
+          <span className="block font-semibold">Jurka</span>
         </h1>
 
         {/* Dělicí zlatá linka */}
-        <div className="w-16 h-px bg-[#C9A961] mb-8" />
+        <div className="w-16 h-px bg-[#C9A961] mb-8 shadow-lg" />
 
         {/* Subtitle */}
-        <p className="text-white/90 font-body text-sm md:text-base tracking-[0.15em] uppercase mb-10 drop-shadow-lg">
+        <p
+          className="text-white font-body text-sm md:text-base tracking-[0.18em] uppercase mb-10"
+          style={{ textShadow: "0 1px 16px rgba(0,0,0,0.8)" }}
+        >
           Svatební fotografie&nbsp;&nbsp;·&nbsp;&nbsp;IRIS Makrofotografie
         </p>
 
+        {/* Inline animace pro nekonečný odlesk */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+          @keyframes infiniteShine {
+            0% { left: -150%; }
+            25% { left: 200%; }
+            100% { left: 200%; }
+          }
+          .animate-infinite-shine {
+            animation: infiniteShine 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+          }
+        `}} />
+
         {/* CTA tlačítka */}
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex flex-col items-center gap-5 mt-8 w-full max-w-xs mx-auto">
           <a
             href="#kontakt"
-            className="px-8 py-3.5 bg-[#C9A961] text-[#0A0A0A] font-body text-sm font-medium tracking-[0.12em] uppercase hover:bg-[#D4AF85] transition-colors duration-300"
+            className="group relative flex items-center justify-center gap-3 w-full px-8 py-4 bg-[#C9A961] text-[#0A0A0A] font-body text-sm md:text-base font-bold tracking-[0.15em] uppercase transition-all duration-300 overflow-hidden rounded-sm shadow-[0_0_15px_rgba(201,169,97,0.4)] hover:shadow-[0_0_25px_rgba(201,169,97,0.7)] hover:-translate-y-1 whitespace-nowrap"
           >
-            Rezervovat termín
+            {/* Nekonečný Shine efekt */}
+            <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+              <div className="absolute top-0 -left-[150%] h-full w-[120%] -skew-x-12 bg-gradient-to-r from-transparent via-white/50 to-transparent animate-infinite-shine" />
+            </div>
+
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              className="relative z-10 transition-transform duration-300 group-hover:scale-110"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" />
+              <path d="M16 2v4M8 2v4M3 10h18" />
+            </svg>
+            <span className="relative z-10">Rezervovat termín</span>
           </a>
+
           <a
-            href="#svatby"
-            className="px-8 py-3.5 border border-white/60 text-white font-body text-sm tracking-[0.12em] uppercase hover:bg-white/10 transition-colors duration-300"
+            href="#portfolio"
+            className="group relative flex items-center justify-center gap-3 w-full px-8 py-4 border border-white/40 text-white font-body text-sm md:text-base font-bold tracking-[0.15em] uppercase bg-white/5 backdrop-blur-md transition-all duration-300 rounded-sm hover:border-[#C9A961]/80 hover:bg-white/10 hover:-translate-y-1 whitespace-nowrap"
           >
-            Prohlédnout portfolio
+            Portfolio
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-1 group-hover:text-[#C9A961]"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
           </a>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-        <span className="text-white/60 text-xs tracking-[0.2em] uppercase font-body">Scroll</span>
-        <svg
-          width="16"
-          height="24"
-          viewBox="0 0 16 24"
-          fill="none"
-          className="text-white/60"
-        >
-          <rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" strokeWidth="1.5" />
-          <circle cx="8" cy="8" r="2" fill="currentColor" className="animate-[scrollDot_2s_ease-in-out_infinite]" />
-        </svg>
-      </div>
+
     </section>
   );
 }

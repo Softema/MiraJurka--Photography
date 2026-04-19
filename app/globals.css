@@ -107,3 +107,26 @@ body {
 .animate-fade-in-up {
   animation: fade-in-up 0.8s ease forwards;
 }
+
+/* ─── Hero slash divider ─────────────────────────────────────── */
+@media (min-width: 768px) {
+  .hero-half-left {
+    flex: 0 0 50%;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 90px) 100%, 0 100%);
+  }
+  .hero-half-right {
+    flex: 0 0 calc(50% + 90px);
+    margin-left: -90px;
+    clip-path: polygon(90px 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-half-top {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 36px), 0 100%);
+  }
+  .hero-half-bottom {
+    margin-top: -36px;
+    clip-path: polygon(0 36px, 100% 0, 100% 100%, 0 100%);
+  }
+}

@@ -8,8 +8,8 @@ import { contactSchema, type ContactFormData } from "@/lib/contactSchema";
 const serviceOptions = [
   { value: "iris", label: "IRIS Fotografie duhovky" },
   { value: "portret", label: "Portréty / Rodinné focení" },
-  { value: "svatba-pul", label: "Svatba – Půlden (6 hod.)" },
-  { value: "svatba-cel", label: "Svatba – Celý den (12 hod.)" },
+  { value: "svatba-pul", label: "Svatba – Půlden" },
+  { value: "svatba-cel", label: "Svatba – Celý den" },
   { value: "jine", label: "Jiná poptávka" },
 ];
 
@@ -53,9 +53,9 @@ export default function ContactForm() {
   };
 
   const inputBase =
-    "w-full bg-transparent border-b border-[#F5F0E8]/20 py-3 text-[#F5F0E8] font-body text-sm placeholder-[#F5F0E8]/30 focus:outline-none focus:border-[#C9A961] transition-colors duration-300";
+    "w-full bg-transparent border-b border-[#F5F0E8]/20 py-3 text-[#F5F0E8] font-body text-sm placeholder-[#F5F0E8]/90 focus:outline-none focus:border-[#C9A961] transition-colors duration-300";
   const labelBase =
-    "block text-xs tracking-[0.15em] uppercase text-[#F5F0E8]/40 font-body mb-2";
+    "block text-xs tracking-[0.15em] uppercase text-[#F5F0E8]/90 font-body mb-2";
   const errorBase = "mt-1.5 text-xs text-red-400 font-body";
 
   if (status === "success") {
@@ -81,7 +81,7 @@ export default function ContactForm() {
         <h3 className="font-display text-3xl font-light italic text-[#C9A961] mb-3">
           Odesláno
         </h3>
-        <p className="text-[#F5F0E8]/60 font-body text-sm leading-relaxed max-w-sm">
+        <p className="text-[#F5F0E8]/80 font-body text-sm leading-relaxed max-w-sm">
           Děkuji za vaši poptávku. Ozvím se vám nejpozději do 48 hodin.
         </p>
         <button
@@ -115,7 +115,7 @@ export default function ContactForm() {
           id="name"
           type="text"
           autoComplete="name"
-          placeholder="Jan Novák"
+          placeholder="Jiří Nový"
           {...register("name")}
           className={inputBase}
         />
@@ -216,7 +216,7 @@ export default function ContactForm() {
         />
         <label
           htmlFor="gdprConsent"
-          className="text-[#F5F0E8]/50 font-body text-xs leading-relaxed cursor-pointer"
+          className="text-[#F5F0E8]/80 font-body text-xs leading-relaxed cursor-pointer"
         >
           Souhlasím se{" "}
           <a

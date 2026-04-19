@@ -15,14 +15,14 @@ export const contactSchema = z.object({
     .optional()
     .or(z.literal("")),
   service: z.enum(["iris", "portret", "svatba-pul", "svatba-cel", "jine"], {
-    errorMap: () => ({ message: "Vyberte prosím typ služby" }),
+    error: "Vyberte prosím typ služby",
   }),
   message: z
     .string()
     .min(10, "Zpráva musí mít alespoň 10 znaků")
     .max(2000, "Zpráva je příliš dlouhá"),
   gdprConsent: z.literal(true, {
-    errorMap: () => ({ message: "Souhlas se zpracováním osobních údajů je povinný" }),
+    error: "Souhlas se zpracováním osobních údajů je povinný",
   }),
   // honeypot — musí být prázdné
   website: z.string().max(0, "").optional(),

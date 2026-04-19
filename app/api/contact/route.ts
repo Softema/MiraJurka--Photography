@@ -2,7 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { contactSchema, serviceLabels } from "@/lib/contactSchema";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    throw new Error("RESEND_API_KEY není nastaven.");
+  }
+  return new Resend(apiKey);
+}
 
 // In-memory rate limiting (IP → timestamps)
 const rateLimitMap = new Map<string, number[]>();
@@ -60,10 +66,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true });
   }
 
-  const contactEmail = process.env.CONTACT_EMAIL ?? "info@miroslav-jurka.cz";
+  const contactEmail = process.env.CONTACT_EMAIL ?? "mirekkjurka@seznam.cz";
   const serviceLabel = serviceLabels[service] ?? service;
 
   try {
+    const resend = getResend();
+
     // Email fotografovi
     await resend.emails.send({
       from: "Web Miroslav Jurka <noreply@miroslav-jurka.cz>",

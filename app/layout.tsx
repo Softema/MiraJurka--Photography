@@ -23,45 +23,51 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://miroslav-jurka.cz"
   ),
   title: {
-    default: "Miroslav Jurka | Svatební fotograf & IRIS Fotografie duhovky",
+    default:
+      "Miroslav Jurka | Svatební fotograf Olomouc, portréty & IRIS Fotografie",
     template: "%s | Miroslav Jurka",
   },
   description:
-    "Profesionální fotograf Miroslav Jurka. Zachycení emocí na svatbách a unikátní makrofotografie oční duhovky (IRIS). Rezervujte si svůj termín online.",
+    "Profesionální svatební fotograf v Olomouci a okolí. Svatby, portrétní focení a unikátní makrofotografie oční duhovky (IRIS). Působím v Olomouckém kraji — Uničov, Zábřeh, Šumperk, Prostějov i Zlín. Rezervujte termín online.",
   keywords: [
     "svatební fotograf",
+    "svatební fotograf Olomouc",
+    "svatební fotograf Olomoucký kraj",
+    "fotograf Olomouc",
+    "fotograf Uničov",
+    "fotograf Zábřeh",
+    "fotograf Šumperk",
+    "fotograf Prostějov",
+    "fotograf Zlín",
+    "portrétní fotograf Olomouc",
+    "rodinné focení Olomouc",
     "IRIS fotografie",
+    "IRIS fotografie Olomouc",
     "focení duhovky",
-    "portrétní fotograf",
-    "rodinné focení",
-    "Miroslav Jurka",
     "makrofotografie oka",
+    "Miroslav Jurka",
   ],
   authors: [{ name: "Miroslav Jurka" }],
   creator: "Miroslav Jurka",
+  alternates: {
+    canonical: "/",
+  },
+  manifest: "/manifest.webmanifest",
   openGraph: {
     type: "website",
     locale: "cs_CZ",
     url: "/",
     siteName: "Miroslav Jurka Fotografie",
-    title: "Miroslav Jurka | Svatební fotograf & IRIS Fotografie duhovky",
+    title:
+      "Miroslav Jurka | Svatební fotograf Olomouc, portréty & IRIS Fotografie",
     description:
-      "Zachycuji emoce na svatbách a odhaluji vesmír ve vaší oční duhovce. Profesionální fotograf pro vaše nejdůležitější okamžiky.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Miroslav Jurka – Fotograf",
-      },
-    ],
+      "Zachycuji emoce na svatbách, portrétech a odhaluji vesmír ve vaší oční duhovce. Profesionální fotograf v Olomouci a okolí.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Miroslav Jurka | Fotograf",
+    title: "Miroslav Jurka | Fotograf Olomouc",
     description:
-      "Svatební fotografie & IRIS makrofotografie oční duhovky. Rezervujte si termín.",
-    images: ["/og-image.jpg"],
+      "Svatební fotografie, portréty & IRIS makrofotografie oční duhovky. Olomoucký kraj. Rezervujte termín.",
   },
   robots: {
     index: true,
@@ -72,6 +78,11 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  verification: {
+    // Po přidání property v Google Search Console zvolit HTML tag metodu
+    // a doplnit hodnotu z `content="..."`
+    google: "__REPLACE_WITH_GSC_VERIFICATION_CODE__",
   },
 };
 

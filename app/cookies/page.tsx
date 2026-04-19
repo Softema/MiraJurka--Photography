@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function CookiesPage() {
   return (
-    <div className="min-h-screen bg-[#FAF7F2] pt-16 lg:pt-20">
+    <div className="min-h-screen bg-[#FAF7F2]">
       <div className="border-b border-[#E8E2D9]">
         <div className="max-w-3xl mx-auto px-6 py-4">
           <Link
@@ -122,8 +122,8 @@ export default function CookiesPage() {
             <h2 className="font-display text-2xl font-semibold mb-4">Kontakt</h2>
             <p className="text-[#1A1A1A]/70 leading-relaxed">
               V případě dotazů k této politice cookies kontaktujte správce webu:{" "}
-              <a href="mailto:info@miroslav-jurka.cz" className="text-[#B8956A] underline">
-                info@miroslav-jurka.cz
+              <a href="mailto:mirekkjurka@seznam.cz" className="text-[#B8956A] underline">
+                mirekkjurka@seznam.cz
               </a>
             </p>
           </section>

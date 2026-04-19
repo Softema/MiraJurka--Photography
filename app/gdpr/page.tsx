@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function GdprPage() {
   return (
-    <div className="min-h-screen bg-[#FAF7F2] pt-16 lg:pt-20">
+    <div className="min-h-screen bg-[#FAF7F2]">
       {/* Navigace zpět */}
       <div className="border-b border-[#E8E2D9]">
         <div className="max-w-3xl mx-auto px-6 py-4">
@@ -51,10 +51,10 @@ export default function GdprPage() {
               </h2>
               <div className="bg-[#F0EBE3] border-l-2 border-[#B8956A] p-5 text-sm leading-relaxed text-[#1A1A1A]/80">
                 <p><strong>Miroslav Jurka</strong></p>
-                <p>IČO: [DOPLNIT]</p>
-                <p>Adresa: [DOPLNIT]</p>
-                <p>E-mail: info@miroslav-jurka.cz</p>
-                <p>Telefon: +420 XXX XXX XXX</p>
+                <p>IČO: 11759411</p>
+                <p>Adresa: Tvrdkov 78, 793 44 Tvrdkov - Ruda</p>
+                <p>E-mail: mirekkjurka@seznam.cz</p>
+                <p>Telefon: 737 039 200</p>
               </div>
             </section>
 
@@ -142,7 +142,7 @@ export default function GdprPage() {
                 {[
                   "Přístupu k osobním údajům (čl. 15)",
                   "Opravy nepřesných údajů (čl. 16)",
-                  "Výmazu („právo být zapomenut") (čl. 17)",
+                  "Výmazu („právo být zapomenut“) (čl. 17)",
                   "Omezení zpracování (čl. 18)",
                   "Přenositelnosti údajů (čl. 20)",
                   "Namítat vůči zpracování (čl. 21)",
@@ -156,8 +156,8 @@ export default function GdprPage() {
               </ul>
               <p className="text-[#1A1A1A]/70 text-sm leading-relaxed mt-4">
                 Svá práva uplatněte e-mailem na{" "}
-                <a href="mailto:info@miroslav-jurka.cz" className="text-[#B8956A] underline">
-                  info@miroslav-jurka.cz
+                <a href="mailto:mirekkjurka@seznam.cz" className="text-[#B8956A] underline">
+                  mirekkjurka@seznam.cz
                 </a>
                 . Na žádost odpovíme nejpozději do 30 dnů.
               </p>

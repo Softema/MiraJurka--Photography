@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function VopPage() {
   return (
-    <div className="min-h-screen bg-[#FAF7F2] pt-16 lg:pt-20">
+    <div className="min-h-screen bg-[#FAF7F2]">
       <div className="border-b border-[#E8E2D9]">
         <div className="max-w-3xl mx-auto px-6 py-4">
           <Link
@@ -35,7 +35,7 @@ export default function VopPage() {
           </h1>
           <div className="w-10 h-px bg-[#B8956A] mb-4" />
           <p className="text-[#1A1A1A]/50 font-body text-sm">
-            Platné od: 15. dubna 2024 · Miroslav Jurka, IČO: [DOPLNIT]
+            Platné od: 15. dubna 2024 · Miroslav Jurka, IČO: 11759411
           </p>
         </div>
 
@@ -101,7 +101,7 @@ export default function VopPage() {
             </div>
             <p className="text-[#1A1A1A]/70 leading-relaxed">
               Aktuální ceník je uveden na webové stránce a v potvrzovacím e-mailu. Ceny jsou
-              konečné. Fotograf není plátcem DPH. Bankovní spojení: [DOPLNIT].
+              konečné. Fotograf není plátcem DPH.
             </p>
           </section>
 
@@ -175,8 +175,8 @@ export default function VopPage() {
             <p className="text-[#1A1A1A]/70 leading-relaxed">
               Zákazník je oprávněn reklamovat zjevné vady dodaných fotografií do 30 dnů od
               jejich doručení. Reklamaci uplatněte e-mailem na{" "}
-              <a href="mailto:info@miroslav-jurka.cz" className="text-[#B8956A] underline">
-                info@miroslav-jurka.cz
+              <a href="mailto:mirekkjurka@seznam.cz" className="text-[#B8956A] underline">
+                mirekkjurka@seznam.cz
               </a>{" "}
               s popisem a ukázkou vady. Fotograf se k reklamaci vyjádří do 14 pracovních dnů.
             </p>

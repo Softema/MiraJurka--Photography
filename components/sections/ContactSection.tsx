@@ -8,8 +8,8 @@ const contactDetails = [
       </svg>
     ),
     label: "Telefon",
-    value: "+420 XXX XXX XXX",
-    href: "tel:+420XXXXXXXXX",
+    value: "737 039 200",
+    href: "tel:+420737039200",
   },
   {
     icon: (
@@ -19,8 +19,8 @@ const contactDetails = [
       </svg>
     ),
     label: "E-mail",
-    value: "info@miroslav-jurka.cz",
-    href: "mailto:info@miroslav-jurka.cz",
+    value: "mirekkjurka@seznam.cz",
+    href: "mailto:mirekkjurka@seznam.cz",
   },
   {
     icon: (
@@ -30,7 +30,7 @@ const contactDetails = [
       </svg>
     ),
     label: "Lokalita",
-    value: "Vaše město / Celá ČR",
+    value: "Uničov / Celá ČR",
     href: null,
   },
 ];
@@ -52,7 +52,7 @@ export default function ContactSection() {
               váš příběh
             </h2>
             <div className="w-12 h-px bg-[#C9A961] mb-8" />
-            <p className="text-[#F5F0E8]/65 font-body text-base leading-relaxed mb-12">
+            <p className="text-[#F5F0E8]/90 font-body text-base leading-relaxed mb-12">
               Těším se na každou novou spolupráci. Neváhejte se ozvat pro
               ověření volného termínu, zodpovězení dotazů nebo jen pro
               nezávaznou konzultaci.
@@ -66,7 +66,7 @@ export default function ContactSection() {
                     {item.icon}
                   </div>
                   <div>
-                    <p className="text-[#F5F0E8]/35 font-body text-xs tracking-[0.15em] uppercase mb-0.5">
+                    <p className="text-[#F5F0E8]/80 font-body text-xs tracking-[0.15em] uppercase mb-0.5">
                       {item.label}
                     </p>
                     {item.href ? (
@@ -88,14 +88,16 @@ export default function ContactSection() {
 
             {/* Sociální sítě */}
             <div>
-              <p className="text-[#F5F0E8]/35 font-body text-xs tracking-[0.15em] uppercase mb-4">
+              <p className="text-[#F5F0E8]/80 font-body text-xs tracking-[0.15em] uppercase mb-4">
                 Sledujte mě
               </p>
               <div className="flex gap-4">
                 <a
-                  href="#"
+                  href="https://www.instagram.com/_miraa95_/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Instagram"
-                  className="w-10 h-10 border border-[#F5F0E8]/15 flex items-center justify-center text-[#F5F0E8]/50 hover:border-[#C9A961] hover:text-[#C9A961] transition-colors duration-300"
+                  className="w-10 h-10 border border-[#C9A961]/40 flex items-center justify-center text-[#C9A961] hover:border-[#C9A961] hover:bg-[#C9A961]/10 transition-colors duration-300"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -104,9 +106,11 @@ export default function ContactSection() {
                   </svg>
                 </a>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/people/Mirek-Jurka-MJ-Photo/100063463839766/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Facebook"
-                  className="w-10 h-10 border border-[#F5F0E8]/15 flex items-center justify-center text-[#F5F0E8]/50 hover:border-[#C9A961] hover:text-[#C9A961] transition-colors duration-300"
+                  className="w-10 h-10 border border-[#C9A961]/40 flex items-center justify-center text-[#C9A961] hover:border-[#C9A961] hover:bg-[#C9A961]/10 transition-colors duration-300"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
