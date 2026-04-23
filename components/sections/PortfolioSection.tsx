@@ -10,6 +10,7 @@ type Photo = {
   src: string;
   category: Category;
   alt: string;
+  objectPosition?: string;
 };
 
 const photos: Photo[] = [
@@ -42,6 +43,7 @@ const photos: Photo[] = [
     src: "/images/portéty/_DSC0787.webp",
     category: "portrety",
     alt: "Portrétní fotografie – detail",
+    objectPosition: "left center",
   },
   {
     src: "/images/iris/20260406-Gaba Hans 100  center.webp",
@@ -182,6 +184,7 @@ export default function PortfolioSection() {
                 fill
                 sizes="(max-width: 768px) 50vw, 33vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
+                style={photo.objectPosition ? { objectPosition: photo.objectPosition } : undefined}
               />
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/60 via-[#1A1A1A]/0 to-[#1A1A1A]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />

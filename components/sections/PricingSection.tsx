@@ -101,10 +101,9 @@ export default function PricingSection() {
               key={plan.id}
               className={`
                 relative flex flex-col p-7 rounded-sm
-                ${
-                  plan.dark
-                    ? "bg-[#0A0A0A] text-[#F5F0E8]"
-                    : plan.featured
+                ${plan.dark
+                  ? "bg-[#0A0A0A] text-[#F5F0E8]"
+                  : plan.featured
                     ? "bg-[#1A1A1A] text-[#F5F0E8]"
                     : "bg-white text-[#1A1A1A] border border-[#E8E2D9]"
                 }
@@ -124,35 +123,32 @@ export default function PricingSection() {
 
               {/* Kategorie */}
               <p
-                className={`text-xs tracking-[0.2em] uppercase font-body mb-3 ${
-                  plan.dark
+                className={`text-xs tracking-[0.2em] uppercase font-body mb-3 ${plan.dark
                     ? "text-[#C9A961]"
                     : plan.featured
-                    ? "text-[#B8956A]"
-                    : "text-[#B8956A]"
-                }`}
+                      ? "text-[#B8956A]"
+                      : "text-[#B8956A]"
+                  }`}
               >
                 {plan.category}
               </p>
 
               {/* Název */}
               <h3
-                className={`font-display text-2xl font-semibold mb-1 ${
-                  plan.dark || plan.featured
+                className={`font-display text-2xl font-semibold mb-1 ${plan.dark || plan.featured
                     ? "text-[#F5F0E8]"
                     : "text-[#1A1A1A]"
-                }`}
+                  }`}
               >
                 {plan.name}
               </h3>
 
               {/* Detail */}
               <p
-                className={`font-body text-sm mb-6 ${
-                  plan.dark || plan.featured
+                className={`font-body text-sm mb-6 ${plan.dark || plan.featured
                     ? "text-[#F5F0E8]/50"
                     : "text-[#1A1A1A]/50"
-                }`}
+                  }`}
               >
                 {plan.details}
               </p>
@@ -161,21 +157,19 @@ export default function PricingSection() {
               <div className="mb-6">
                 {plan.originalPrice && (
                   <p
-                    className={`font-body text-sm line-through mb-1 ${
-                      plan.dark ? "text-[#F5F0E8]/30" : "text-[#1A1A1A]/30"
-                    }`}
+                    className={`font-body text-sm line-through mb-1 ${plan.dark ? "text-[#F5F0E8]/30" : "text-[#1A1A1A]/30"
+                      }`}
                   >
                     {plan.originalPrice} {plan.currency}
                   </p>
                 )}
                 <p
-                  className={`font-display text-4xl font-bold ${
-                    plan.dark
+                  className={`font-display text-4xl font-bold ${plan.dark
                       ? "text-[#C9A961]"
                       : plan.featured
-                      ? "text-[#B8956A]"
-                      : "text-[#1A1A1A]"
-                  }`}
+                        ? "text-[#B8956A]"
+                        : "text-[#1A1A1A]"
+                    }`}
                 >
                   {plan.price}{" "}
                   <span className="text-xl font-normal">{plan.currency}</span>
@@ -184,13 +178,12 @@ export default function PricingSection() {
 
               {/* Dělicí linka */}
               <div
-                className={`h-px mb-6 ${
-                  plan.dark
+                className={`h-px mb-6 ${plan.dark
                     ? "bg-[#F5F0E8]/10"
                     : plan.featured
-                    ? "bg-[#F5F0E8]/10"
-                    : "bg-[#E8E2D9]"
-                }`}
+                      ? "bg-[#F5F0E8]/10"
+                      : "bg-[#E8E2D9]"
+                  }`}
               />
 
               {/* Co zahrnuje */}
@@ -198,20 +191,18 @@ export default function PricingSection() {
                 {plan.includes.map((item) => (
                   <li
                     key={item}
-                    className={`flex items-start gap-2.5 font-body text-sm ${
-                      plan.dark || plan.featured
+                    className={`flex items-start gap-2.5 font-body text-sm ${plan.dark || plan.featured
                         ? "text-[#F5F0E8]/70"
                         : "text-[#1A1A1A]/70"
-                    }`}
+                      }`}
                   >
                     <span
-                      className={`mt-1.5 w-1 h-1 rounded-full flex-shrink-0 ${
-                        plan.dark
+                      className={`mt-1.5 w-1 h-1 rounded-full flex-shrink-0 ${plan.dark
                           ? "bg-[#C9A961]"
                           : plan.featured
-                          ? "bg-[#B8956A]"
-                          : "bg-[#B8956A]"
-                      }`}
+                            ? "bg-[#B8956A]"
+                            : "bg-[#B8956A]"
+                        }`}
                     />
                     {item}
                   </li>
@@ -223,10 +214,9 @@ export default function PricingSection() {
                 href="#kontakt"
                 className={`
                   block text-center py-3 text-sm font-body font-medium tracking-[0.1em] uppercase transition-colors duration-300
-                  ${
-                    plan.dark
-                      ? "bg-[#C9A961] text-[#0A0A0A] hover:bg-[#D4AF85]"
-                      : plan.featured
+                  ${plan.dark
+                    ? "bg-[#C9A961] text-[#0A0A0A] hover:bg-[#D4AF85]"
+                    : plan.featured
                       ? "bg-[#B8956A] text-white hover:bg-[#C9A961] hover:text-[#0A0A0A]"
                       : "border border-[#1A1A1A] text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-white"
                   }
@@ -239,8 +229,8 @@ export default function PricingSection() {
         </div>
 
         {/* Footnote */}
-        <p className="text-center text-[#1A1A1A]/40 font-body text-xs mt-8 tracking-wide">
-          Ceny jsou uvedeny včetně DPH · Záloha 30 % při rezervaci · Individuální nabídka na vyžádání
+        <p className="text-center text-[#1A1A1A]/70 font-body text-sm mt-8 tracking-wide">
+          Ceny jsou uvedeny včetně DPH · Individuální nabídka na vyžádání
         </p>
       </div>
     </section>
