@@ -79,7 +79,7 @@ export default function VopPage() {
               {[
                 "Zákazník vyplní kontaktní formulář nebo se ozve jiným způsobem.",
                 "Fotograf potvrdí dostupný termín a zašle shrnutí zakázky.",
-                "Zákazník uhradí zálohu (viz čl. 4). Tímto je termín závazně rezervován.",
+                "Zákazník potvrdí rezervaci. Tímto je termín závazně rezervován.",
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-[#1A1A1A]/70">
                   <span className="font-semibold text-[#B8956A] flex-shrink-0">{i + 1}.</span>
@@ -89,15 +89,14 @@ export default function VopPage() {
             </ol>
             <p className="text-[#1A1A1A]/70 leading-relaxed">
               <strong className="text-[#1A1A1A]">Poznámka k termínům:</strong> Termíny se
-              obsazují průběžně. Rezervace bez úhrady zálohy není závazná.
+              obsazují průběžně.
             </p>
           </section>
 
           <section>
             <h2 className="font-display text-2xl font-semibold mb-4">4. Ceny a platební podmínky</h2>
             <div className="bg-[#F0EBE3] border-l-2 border-[#B8956A] p-5 mb-4 text-[#1A1A1A]/70 leading-relaxed">
-              <p className="mb-2"><strong className="text-[#1A1A1A]">Záloha:</strong> 30 % z celkové ceny splatná do 7 dnů od potvrzení termínu.</p>
-              <p><strong className="text-[#1A1A1A]">Doplatek:</strong> Zbývající částka splatná nejpozději v den focení, v hotovosti nebo převodem.</p>
+              <p><strong className="text-[#1A1A1A]">Platba:</strong> Celková částka je splatná nejpozději v den focení, v hotovosti nebo převodem.</p>
             </div>
             <p className="text-[#1A1A1A]/70 leading-relaxed">
               Aktuální ceník je uveden na webové stránce a v potvrzovacím e-mailu. Ceny jsou
@@ -151,10 +150,9 @@ export default function VopPage() {
                 </thead>
                 <tbody>
                   {[
-                    { period: "více než 30 dní", fee: "Záloha se vrací v plné výši" },
-                    { period: "14–30 dní", fee: "50 % zálohy" },
-                    { period: "méně než 14 dní", fee: "Záloha propadá" },
-                    { period: "Zrušení v den focení", fee: "100 % ceny zakázky" },
+                    { period: "více než 14 dní", fee: "Bez storno poplatku" },
+                    { period: "méně než 14 dní", fee: "50 % z ceny zakázky" },
+                    { period: "Zrušení v den focení", fee: "100 % z ceny zakázky" },
                   ].map((row) => (
                     <tr key={row.period} className="border-b border-[#E8E2D9]">
                       <td className="py-3 pr-4 text-[#1A1A1A]/70">{row.period}</td>

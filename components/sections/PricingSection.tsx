@@ -89,8 +89,7 @@ export default function PricingSection() {
           </h2>
           <div className="w-12 h-px bg-[#B8956A] mx-auto mb-6" />
           <p className="text-[#1A1A1A]/60 font-body text-base leading-relaxed">
-            Ceny jsou konečné, bez skrytých poplatků. Záloha 30 % při
-            rezervaci termínu.
+            Ceny jsou konečné, bez skrytých poplatků.
           </p>
         </div>
 
@@ -124,10 +123,10 @@ export default function PricingSection() {
               {/* Kategorie */}
               <p
                 className={`text-xs tracking-[0.2em] uppercase font-body mb-3 ${plan.dark
-                    ? "text-[#C9A961]"
-                    : plan.featured
-                      ? "text-[#B8956A]"
-                      : "text-[#B8956A]"
+                  ? "text-[#C9A961]"
+                  : plan.featured
+                    ? "text-[#B8956A]"
+                    : "text-[#B8956A]"
                   }`}
               >
                 {plan.category}
@@ -136,8 +135,8 @@ export default function PricingSection() {
               {/* Název */}
               <h3
                 className={`font-display text-2xl font-semibold mb-1 ${plan.dark || plan.featured
-                    ? "text-[#F5F0E8]"
-                    : "text-[#1A1A1A]"
+                  ? "text-[#F5F0E8]"
+                  : "text-[#1A1A1A]"
                   }`}
               >
                 {plan.name}
@@ -146,8 +145,8 @@ export default function PricingSection() {
               {/* Detail */}
               <p
                 className={`font-body text-sm mb-6 ${plan.dark || plan.featured
-                    ? "text-[#F5F0E8]/50"
-                    : "text-[#1A1A1A]/50"
+                  ? "text-[#F5F0E8]/50"
+                  : "text-[#1A1A1A]/50"
                   }`}
               >
                 {plan.details}
@@ -165,10 +164,10 @@ export default function PricingSection() {
                 )}
                 <p
                   className={`font-display text-4xl font-bold ${plan.dark
-                      ? "text-[#C9A961]"
-                      : plan.featured
-                        ? "text-[#B8956A]"
-                        : "text-[#1A1A1A]"
+                    ? "text-[#C9A961]"
+                    : plan.featured
+                      ? "text-[#B8956A]"
+                      : "text-[#1A1A1A]"
                     }`}
                 >
                   {plan.price}{" "}
@@ -179,10 +178,10 @@ export default function PricingSection() {
               {/* Dělicí linka */}
               <div
                 className={`h-px mb-6 ${plan.dark
+                  ? "bg-[#F5F0E8]/10"
+                  : plan.featured
                     ? "bg-[#F5F0E8]/10"
-                    : plan.featured
-                      ? "bg-[#F5F0E8]/10"
-                      : "bg-[#E8E2D9]"
+                    : "bg-[#E8E2D9]"
                   }`}
               />
 
@@ -192,16 +191,16 @@ export default function PricingSection() {
                   <li
                     key={item}
                     className={`flex items-start gap-2.5 font-body text-sm ${plan.dark || plan.featured
-                        ? "text-[#F5F0E8]/70"
-                        : "text-[#1A1A1A]/70"
+                      ? "text-[#F5F0E8]/70"
+                      : "text-[#1A1A1A]/70"
                       }`}
                   >
                     <span
                       className={`mt-1.5 w-1 h-1 rounded-full flex-shrink-0 ${plan.dark
-                          ? "bg-[#C9A961]"
-                          : plan.featured
-                            ? "bg-[#B8956A]"
-                            : "bg-[#B8956A]"
+                        ? "bg-[#C9A961]"
+                        : plan.featured
+                          ? "bg-[#B8956A]"
+                          : "bg-[#B8956A]"
                         }`}
                     />
                     {item}
