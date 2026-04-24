@@ -24,8 +24,6 @@ export const contactSchema = z.object({
   gdprConsent: z.literal(true, {
     error: "Souhlas se zpracováním osobních údajů je povinný",
   }),
-  // honeypot — musí být prázdné
-  website: z.string().max(0, "").optional(),
 });
 
 export type ContactFormData = z.infer<typeof contactSchema>;

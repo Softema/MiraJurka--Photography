@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { contactSchema, type ContactFormData } from "@/lib/contactSchema";
+import { contactSchema, serviceLabels, type ContactFormData } from "@/lib/contactSchema";
 
 const serviceOptions = [
   { value: "iris", label: "IRIS Fotografie duhovky" },
@@ -33,15 +33,25 @@ export default function ContactForm() {
     setErrorMsg("");
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://formsubmit.co/ajax/mirekkjurka@seznam.cz", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone || "",
+          service: serviceLabels[data.service] ?? data.service,
+          message: data.message,
+          _subject: `Nová poptávka: ${serviceLabels[data.service]} – ${data.name}`,
+          _replyto: data.email,
+          _captcha: "false",
+          _honey: "",
+        }),
       });
 
-      if (!res.ok) {
-        const json = await res.json().catch(() => ({}));
-        throw new Error(json?.error ?? "Chyba při odesílání.");
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok || result.success !== "true") {
+        throw new Error("Chyba při odesílání.");
       }
 
       setStatus("success");
@@ -96,15 +106,8 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-7">
-      {/* Honeypot — skryté pole pro spam boty */}
-      <input
-        type="text"
-        {...register("website")}
-        className="hidden"
-        tabIndex={-1}
-        autoComplete="off"
-        aria-hidden="true"
-      />
+      {/* Honeypot — skryté pole pro spam boty (FormSubmit.co) */}
+      <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
       {/* Jméno */}
       <div>

@@ -82,7 +82,7 @@ export const metadata: Metadata = {
   verification: {
     // Po přidání property v Google Search Console zvolit HTML tag metodu
     // a doplnit hodnotu z `content="..."`
-    google: "__REPLACE_WITH_GSC_VERIFICATION_CODE__",
+    google: "9dpAoxQKT3YKUKtEhvn45YVH2UpH9p5Zv90vKKXUrtw",
   },
 };
 
