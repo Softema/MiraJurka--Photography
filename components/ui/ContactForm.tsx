@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { contactSchema, serviceLabels, type ContactFormData } from "@/lib/contactSchema";
+import { contactSchema, type ContactFormData } from "@/lib/contactSchema";
 
 const serviceOptions = [
   { value: "iris", label: "IRIS Fotografie duhovky" },
@@ -33,25 +33,15 @@ export default function ContactForm() {
     setErrorMsg("");
 
     try {
-      const res = await fetch("https://formsubmit.co/ajax/mirekkjurka@seznam.cz", {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify({
-          name: data.name,
-          email: data.email,
-          phone: data.phone || "",
-          service: serviceLabels[data.service] ?? data.service,
-          message: data.message,
-          _subject: `Nová poptávka: ${serviceLabels[data.service]} – ${data.name}`,
-          _replyto: data.email,
-          _captcha: "false",
-          _honey: "",
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
 
       const result = await res.json().catch(() => ({}));
-      if (!res.ok || result.success !== "true") {
-        throw new Error("Chyba při odesílání.");
+      if (!res.ok) {
+        throw new Error(result.error || "Chyba při odesílání.");
       }
 
       setStatus("success");
