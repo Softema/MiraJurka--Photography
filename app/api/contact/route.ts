@@ -33,6 +33,7 @@ export async function POST(req: NextRequest) {
   });
 
   const result = await res.json().catch(() => ({}));
+  console.log("[contact] formsubmit status:", res.status, "body:", JSON.stringify(result));
 
   if (!res.ok || result.success !== "true") {
     return NextResponse.json(
