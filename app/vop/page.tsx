@@ -44,8 +44,8 @@ export default function VopPage() {
           <section>
             <h2 className="font-display text-2xl font-semibold mb-4">1. Úvodní ustanovení</h2>
             <p className="text-[#1A1A1A]/70 leading-relaxed">
-              Tyto všeobecné obchodní podmínky (dále jen „VOP") upravují smluvní vztah mezi
-              Miroslavem Jurkou (dále jen „fotograf") a zákazníkem při objednávce a realizaci
+              Tyto všeobecné obchodní podmínky (dále jen „VOP&quot;) upravují smluvní vztah mezi
+              Miroslavem Jurkou (dále jen „fotograf&quot;) a zákazníkem při objednávce a realizaci
               fotografických služeb. Uzavřením objednávky zákazník potvrzuje, že se s těmito VOP
               seznámil a souhlasí s nimi.
             </p>

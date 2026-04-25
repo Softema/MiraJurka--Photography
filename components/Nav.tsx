@@ -98,7 +98,7 @@ export default function Nav() {
             </li>
           ))}
           <li>
-            <a
+            <Link
               href="/#kontakt"
               className={`
                 ml-4 px-5 py-2 text-sm tracking-[0.1em] uppercase font-medium border
@@ -111,7 +111,7 @@ export default function Nav() {
               `}
             >
               Rezervovat
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -173,7 +173,7 @@ export default function Nav() {
             </li>
           ))}
           <li>
-            <a
+            <Link
               href="/#kontakt"
               onClick={() => setMenuOpen(false)}
               className={`inline-block px-5 py-2.5 text-sm tracking-[0.1em] uppercase font-medium border ${
@@ -183,7 +183,7 @@ export default function Nav() {
               }`}
             >
               Rezervovat termín
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

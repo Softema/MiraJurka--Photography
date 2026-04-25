@@ -106,7 +106,7 @@ export default function CookiesPage() {
             <ul className="list-none space-y-2">
               <li className="flex items-start gap-2 text-[#1A1A1A]/70">
                 <span className="mt-2 w-1 h-1 rounded-full bg-[#B8956A] flex-shrink-0" />
-                Kliknutím na odkaz „Nastavení cookies" v patičce webu
+                Kliknutím na odkaz „Nastavení cookies&quot; v patičce webu
               </li>
               <li className="flex items-start gap-2 text-[#1A1A1A]/70">
                 <span className="mt-2 w-1 h-1 rounded-full bg-[#B8956A] flex-shrink-0" />

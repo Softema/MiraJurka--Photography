@@ -117,9 +117,6 @@ export default function PortfolioSection() {
     };
   }, [lightboxIndex, closeLightbox, showNext, showPrev]);
 
-  useEffect(() => {
-    setLightboxIndex(null);
-  }, [filter]);
 
   const activePhoto = lightboxIndex !== null ? visiblePhotos[lightboxIndex] : null;
 
@@ -151,7 +148,10 @@ export default function PortfolioSection() {
               <button
                 key={f.value}
                 type="button"
-                onClick={() => setFilter(f.value)}
+                onClick={() => {
+                  setFilter(f.value);
+                  setLightboxIndex(null);
+                }}
                 className={`
                   px-5 py-2.5 font-body text-xs tracking-[0.2em] uppercase
                   transition-all duration-300
