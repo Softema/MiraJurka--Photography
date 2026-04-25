@@ -4,7 +4,7 @@ const LAST_MODIFIED = new Date("2026-04-19");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://miroslav-jurka.cz";
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.mirekjurkafoto.cz";
 
   return [
     {
