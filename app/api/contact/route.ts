@@ -18,7 +18,11 @@ export async function POST(req: NextRequest) {
 
   const res = await fetch("https://formsubmit.co/ajax/mirekkjurka@seznam.cz", {
     method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Referer: "https://www.mirekjurkafoto.cz/",
+    },
     body: JSON.stringify({
       name: data.name,
       email: data.email,
