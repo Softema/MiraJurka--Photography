@@ -16,7 +16,7 @@ export function getLocalBusinessSchema() {
     email: "mirekkjurka@seznam.cz",
     image: `${baseUrl}/images/wedding-hero.webp`,
     logo: `${baseUrl}/favicon.ico`,
-    priceRange: "1 000–17 000 Kč",
+    priceRange: "1 500–17 000 Kč",
     currenciesAccepted: "CZK",
     paymentAccepted: "Hotovost, bankovní převod",
     areaServed: [
@@ -45,17 +45,18 @@ export function getLocalBusinessSchema() {
       name: "Fotografické služby",
       itemListElement: [
         {
-          "@type": "Offer",
-          name: "IRIS Fotografie duhovky",
-          description: "Umělecký makro portrét oční duhovky",
-          price: "1000",
-          priceCurrency: "CZK",
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            price: "1000",
-            priceCurrency: "CZK",
-          },
-        },
+  "@type": "Offer",
+  name: "IRIS Fotografie duhovky",
+  description:
+    "Úprava 1 fotografie oční duhovky. Každá další upravená fotografie +800 Kč. Tisk není zahrnut v ceně.",
+  price: "1700",
+  priceCurrency: "CZK",
+  priceSpecification: {
+    "@type": "PriceSpecification",
+    price: "1700",
+    priceCurrency: "CZK",
+  },
+},
         {
           "@type": "Offer",
           name: "Portrétní / rodinné focení",
