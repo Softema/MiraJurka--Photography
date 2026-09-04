@@ -16,7 +16,7 @@ const irisFeatures = [
   {
     icon: "◈",
     title: "Umělecký portrét",
-    desc: "Výsledkem je zarámovaný tisk hodný výstavní galerie.",
+    desc: "Výsledkem je profesionálně upravená fotografie ve vysokém rozlišení.",
   },
 ];
 
@@ -65,7 +65,7 @@ export default function IrisSection() {
                   od
                 </span>
                 <span className="text-xl font-display font-bold leading-none">
-                  1 000
+                  1 700
                 </span>
                 <span className="text-xs font-body font-semibold leading-tight">
                   Kč
@@ -89,8 +89,8 @@ export default function IrisSection() {
               IRIS makrofotografie je umělecký způsob, jak je odhalit.
             </p>
             <p className="text-[#F5F0E8]/70 font-body text-base leading-relaxed mb-10">
-              Výsledkem je velkoformátový tisk vhodný do bytu nebo jako
-              originální dárek, který nikdo jiný na světě nemá.
+              Výsledkem je profesionálně upravená fotografie ve vysokém rozlišení,
+  kterou je možné následně nechat vytisknout jako originální obraz nebo dárek.
             </p>
 
             {/* Features */}
@@ -112,20 +112,19 @@ export default function IrisSection() {
               ))}
             </div>
 
-            {/* Akční nabídka */}
-            <div className="border border-[#C9A961]/30 bg-[#C9A961]/8 p-5 mb-8 rounded-sm">
-              <p className="text-[#C9A961] text-xs tracking-[0.2em] uppercase mb-2 font-body">
-                Zaváděcí akce
-              </p>
-              <p className="text-[#F5F0E8] font-body text-sm leading-relaxed">
-                Nyní za speciální cenu{" "}
-                <strong className="text-[#C9A961]">1 000 Kč</strong>{" "}
-                <span className="text-[#F5F0E8]/40 line-through">
-                  (původně 1 700 Kč)
-                </span>
-                . Nabídka platí do vyprodání kapacity.
-              </p>
-            </div>
+            {/* Cena IRIS fotografie */}
+<div className="border border-[#C9A961]/30 bg-[#C9A961]/8 p-5 mb-8 rounded-sm">
+  <p className="text-[#C9A961] text-xs tracking-[0.2em] uppercase mb-2 font-body">
+    Cena IRIS fotografie
+  </p>
+  <p className="text-[#F5F0E8] font-body text-sm leading-relaxed">
+    Cena za úpravu 1 fotografie je{" "}
+    <strong className="text-[#C9A961]">1 700 Kč</strong>.
+    Každá další upravená fotografie stojí{" "}
+    <strong className="text-[#C9A961]">800 Kč</strong>.
+    Cena nezahrnuje tisk.
+  </p>
+</div>
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4">
