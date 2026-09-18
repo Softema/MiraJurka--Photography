@@ -131,7 +131,7 @@ export default function ContactForm() {
         </h3>
 
         <p className="text-[#F5F0E8]/80 font-body text-sm leading-relaxed max-w-sm">
-          Děkuji za vaši poptávku. Ozvím se vám nejpozději do 48 hodin.
+          Děkuji za vaši poptávku. Ozvu se vám nejpozději do 48 hodin.
         </p>
 
         <button
