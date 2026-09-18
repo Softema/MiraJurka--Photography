@@ -3,7 +3,11 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { contactSchema, type ContactFormData } from "@/lib/contactSchema";
+import {
+  contactSchema,
+  serviceLabels,
+  type ContactFormData,
+} from "@/lib/contactSchema";
 
 const serviceOptions = [
   { value: "iris", label: "IRIS Fotografie duhovky" },
@@ -14,6 +18,12 @@ const serviceOptions = [
 ];
 
 type Status = "idle" | "sending" | "success" | "error";
+
+type FormSubmitResponse = {
+  success?: boolean | string;
+  message?: string;
+  error?: string;
+};
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -33,29 +43,66 @@ export default function ContactForm() {
     setErrorMsg("");
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+      const serviceLabel = serviceLabels[data.service] ?? data.service;
 
-      const result = await res.json().catch(() => ({}));
-      if (!res.ok) {
-        throw new Error(result.error || "Chyba při odesílání.");
+      const res = await fetch(
+        "https://formsubmit.co/ajax/mirekkjurka@seznam.cz",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: data.name,
+            email: data.email,
+            phone: data.phone || "",
+            service: serviceLabel,
+            message: data.message,
+            _subject: `Nová poptávka: ${serviceLabel} – ${data.name}`,
+            _replyto: data.email,
+            _captcha: "false",
+            _honey: "",
+            _url: "https://www.mirekjurkafoto.cz/",
+          }),
+        }
+      );
+
+      const result: FormSubmitResponse = await res
+        .json()
+        .catch(() => ({}));
+
+      const success =
+        res.ok &&
+        (result.success === true || result.success === "true");
+
+      if (!success) {
+        throw new Error(
+          result.error ||
+            result.message ||
+            "Chyba při odesílání e-mailu. Zkuste to prosím znovu."
+        );
       }
 
       setStatus("success");
       reset();
     } catch (err) {
       setStatus("error");
-      setErrorMsg(err instanceof Error ? err.message : "Neočekávaná chyba.");
+
+      setErrorMsg(
+        err instanceof Error
+          ? err.message
+          : "Neočekávaná chyba při odesílání."
+      );
     }
   };
 
   const inputBase =
     "w-full bg-transparent border-b border-[#F5F0E8]/20 py-3 text-[#F5F0E8] font-body text-sm placeholder-[#F5F0E8]/90 focus:outline-none focus:border-[#C9A961] transition-colors duration-300";
+
   const labelBase =
     "block text-xs tracking-[0.15em] uppercase text-[#F5F0E8]/90 font-body mb-2";
+
   const errorBase = "mt-1.5 text-xs text-red-400 font-body";
 
   if (status === "success") {
@@ -78,12 +125,15 @@ export default function ContactForm() {
             />
           </svg>
         </div>
+
         <h3 className="font-display text-3xl font-light italic text-[#C9A961] mb-3">
           Odesláno
         </h3>
+
         <p className="text-[#F5F0E8]/80 font-body text-sm leading-relaxed max-w-sm">
           Děkuji za vaši poptávku. Ozvím se vám nejpozději do 48 hodin.
         </p>
+
         <button
           onClick={() => setStatus("idle")}
           className="mt-8 text-xs tracking-[0.15em] uppercase text-[#C9A961]/60 font-body hover:text-[#C9A961] transition-colors"
@@ -96,14 +146,22 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-7">
-      {/* Honeypot — skryté pole pro spam boty (FormSubmit.co) */}
-      <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+      {/* Honeypot — skryté pole pro spam boty */}
+      <input
+        type="text"
+        name="_honey"
+        className="hidden"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+      />
 
       {/* Jméno */}
       <div>
         <label htmlFor="name" className={labelBase}>
           Jméno a příjmení *
         </label>
+
         <input
           id="name"
           type="text"
@@ -112,6 +170,7 @@ export default function ContactForm() {
           {...register("name")}
           className={inputBase}
         />
+
         {errors.name && (
           <p className={errorBase}>{errors.name.message}</p>
         )}
@@ -122,6 +181,7 @@ export default function ContactForm() {
         <label htmlFor="email" className={labelBase}>
           E-mail *
         </label>
+
         <input
           id="email"
           type="email"
@@ -130,6 +190,7 @@ export default function ContactForm() {
           {...register("email")}
           className={inputBase}
         />
+
         {errors.email && (
           <p className={errorBase}>{errors.email.message}</p>
         )}
@@ -140,6 +201,7 @@ export default function ContactForm() {
         <label htmlFor="phone" className={labelBase}>
           Telefon (volitelné)
         </label>
+
         <input
           id="phone"
           type="tel"
@@ -148,6 +210,7 @@ export default function ContactForm() {
           {...register("phone")}
           className={inputBase}
         />
+
         {errors.phone && (
           <p className={errorBase}>{errors.phone.message}</p>
         )}
@@ -158,6 +221,7 @@ export default function ContactForm() {
         <label htmlFor="service" className={labelBase}>
           Typ služby *
         </label>
+
         <select
           id="service"
           {...register("service")}
@@ -167,6 +231,7 @@ export default function ContactForm() {
           <option value="" disabled className="bg-[#1A1A1A]">
             Vyberte...
           </option>
+
           {serviceOptions.map((opt) => (
             <option
               key={opt.value}
@@ -177,6 +242,7 @@ export default function ContactForm() {
             </option>
           ))}
         </select>
+
         {errors.service && (
           <p className={errorBase}>{errors.service.message}</p>
         )}
@@ -187,6 +253,7 @@ export default function ContactForm() {
         <label htmlFor="message" className={labelBase}>
           Vaše zpráva *
         </label>
+
         <textarea
           id="message"
           rows={4}
@@ -194,6 +261,7 @@ export default function ContactForm() {
           {...register("message")}
           className={`${inputBase} resize-none`}
         />
+
         {errors.message && (
           <p className={errorBase}>{errors.message.message}</p>
         )}
@@ -207,6 +275,7 @@ export default function ContactForm() {
           {...register("gdprConsent")}
           className="mt-1 w-4 h-4 accent-[#C9A961] cursor-pointer flex-shrink-0"
         />
+
         <label
           htmlFor="gdprConsent"
           className="text-[#F5F0E8]/80 font-body text-xs leading-relaxed cursor-pointer"
@@ -222,14 +291,18 @@ export default function ContactForm() {
           za účelem vyřízení mé poptávky. *
         </label>
       </div>
+
       {errors.gdprConsent && (
-        <p className={`${errorBase} -mt-5`}>{errors.gdprConsent.message}</p>
+        <p className={`${errorBase} -mt-5`}>
+          {errors.gdprConsent.message}
+        </p>
       )}
 
       {/* Chybová hláška */}
       {status === "error" && (
         <div className="p-4 border border-red-500/30 bg-red-500/10 text-red-400 font-body text-sm">
-          {errorMsg || "Nastala chyba. Zkuste to prosím znovu nebo mě kontaktujte přímo."}
+          {errorMsg ||
+            "Nastala chyba. Zkuste to prosím znovu nebo mě kontaktujte přímo."}
         </div>
       )}
 
